@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Image, TouchableOpacity } from 'react-native';
 
-export default function Login(){
+export default function Login({navigation}) {
+  
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     return(
         <View style={styles.container}>
             <Image source={require('../assets/Logo.png')} style={styles.logo} />
@@ -24,21 +24,19 @@ export default function Login(){
             />
             <View style={{marginTop: 40, width: 160}}>
                 <Button
-                    title='Login'
-                    color='#f04b48' 
+                    title="Log in"
+                    onPress={() =>
+                        navigation.navigate('main')
+                    }
                 />
             </View>
-            <View style={{marginVertical: 30,  width: 160}}> 
-                <Button
-                    title='Continue as Guest'
-                    color='#f04b48' 
-                />
-            </View>
-            <TouchableOpacity onPress={() => console.log('Signing up New user...')}>
+           
+            <TouchableOpacity onPress={() => navigation.navigate('register')}>
                 <Text style={{color: '#f04b48'}}> New User? Register!</Text>
             </TouchableOpacity>  
         </View>
     );
+                
 }
 
 const styles = StyleSheet.create({

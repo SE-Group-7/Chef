@@ -9,84 +9,66 @@ import {
   } from 'react-native';
 
  
-export default class main extends React.Component {
-  render() {
+export default function main({navigation}){
+
       return(
-        <View style={styles.rowContainer}>
-          <Image source={require('../assets/Logo.png')}
-          style={styles.thumbnail}
-          resizeMode="contain" />
-          <View style={styles.rowText}>
-            <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
-              {this.props.title}
+          <View style={styles.container}>
+            <Text style={{color: '#f04b48', fontSize: 40, fontWeight: 'bold', textAlign: 'center', marginBottom: 20}}>Incoming order
+            <Image
+                style={styles.image}
+                source={require('../assets/Logo.png')}
+              />
             </Text>
-            <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>
-              {this.props.author}
+            <TouchableOpacity onPress={() => navigation.navigate('detail')}>
+            <Text style={styles.text}>
+              burger combo
+              <Image
+                style={styles.image}
+                source={require('../assets/burger1.jpg')}
+              />
+            </Text>
+            </TouchableOpacity>  
+            <Text style={styles.text}>
+              cheessburger
+              <Image
+                style={styles.image}
+                source={require('../assets/chessburger.jpg')}
+              />
+            </Text>
+            <Text style={styles.text}>
+              steak burger
+              <Image
+                style={styles.image}
+                source={require('../assets/steakburger.jpg')}
+              />
+            </Text>
+            <Text style={styles.text}>
+              chick nugget
+              <Image
+                style={styles.image}
+                source={require('../assets/nugget.jpg')}
+              />
             </Text>
           </View>
-          <Image source={require('../assets/burger1.jpg')}
-          style={styles.thumbnail}
-          resizeMode="contain" />
-          <View style={styles.rowText}>
-            <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
-              {this.props.title}
-            </Text>
-            <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>
-              {this.props.author}
-            </Text>
-          </View>
-          <Image source={require('../assets/burger2.jpg')}
-          style={styles.thumbnail}
-          resizeMode="contain" />
-          <View style={styles.rowText}>
-            <Text style={styles.title} numberOfLines={2} ellipsizeMode ={'tail'}>
-              {this.props.title}
-            </Text>
-            <Text style={styles.author} numberOfLines={1} ellipsizeMode ={'tail'}>
-              {this.props.author}
-            </Text>
-          </View>
-        </View>
+          
+
       );
-  }
+  
 }
 
-
 const styles = StyleSheet.create({
-  rowContainer: {
-    flexDirection: 'row',
-    backgroundColor: '#FFF',
-    height: 100,
-    padding: 10,
-    marginRight: 10,
-    marginLeft: 10,
-    marginTop: 10,
-    borderRadius: 4,
-    shadowOffset:{  width: 1,  height: 1,  },
-    shadowColor: '#CCC',
-    shadowOpacity: 1.0,
-    shadowRadius: 1
-  },
-  title: {
-    paddingLeft: 10,
-    paddingTop: 5,
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#777'
-  },
-  author: {
-    paddingLeft: 10,
-    marginTop: 5,
-    fontSize: 14,
-    color: '#777'
-  },
-  thumbnail: {
+  container: {
     flex: 1,
-    height: undefined,
-    width: undefined
+    paddingTop: 50,
+    backgroundColor: '#f6f7f8',
   },
-  rowText: {
-    flex: 4,
-    flexDirection: 'column'
-  }
-  });
+  image: {
+    width: 80,
+    height: 80,
+  },
+  text: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    backgroundColor: '#dcdcde',
+  },
+});
