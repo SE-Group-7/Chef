@@ -1,16 +1,15 @@
-import React from 'react';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import AppNavigator from './Components/AppNavigator';
 import { StyleSheet, Text, View } from 'react-native';
-import Login from './Components/login';
 
-export default function App() {
+
+export default function App(){
+  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <View style={{flex:1}}>
-          <Login />
-      </View>
-    </View>
+          <AppNavigator/>
   );
+
 }
 
 const styles = StyleSheet.create({
